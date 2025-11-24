@@ -31,4 +31,4 @@ runs:
               issue_number,
               labels
             });
-        }
+          }
