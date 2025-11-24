@@ -13,6 +13,6 @@ jobs:
     steps:
       - name: Add team labels
         run: |
-          if [[ ${{ github.event.pull_request.title }} == D2* ]]; then
+          if [[ "${{ github.event.pull_request.title }}" == D2* ]]; then
             gh pr edit ${{ github.event.pull_request.number }} --add-label "team-fun"
           fi
