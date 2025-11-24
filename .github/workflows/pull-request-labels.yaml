@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Add team labels
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if [[ "${{ github.event.pull_request.title }}" == D2* ]]; then
             gh pr edit ${{ github.event.pull_request.number }} --add-label "team-fun"
