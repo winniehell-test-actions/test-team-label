@@ -10,9 +10,9 @@ on:
 jobs:
   team-labels:
     runs-on: ubuntu-slim
-    permissions:
-      contents: read
-      pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/add-team-label
+      - name: Add team labels
+        run: |
+          if [[ ${{ github.event.pull_request.title }} == D2* ]]; then
+            gh pr edit ${{ github.event.pull_request.number }} --add-label "team-fun"
+          fi
