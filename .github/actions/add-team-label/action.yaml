@@ -7,4 +7,9 @@ runs:
     - uses: actions/github-script@v8
       with:
         script: |
-          console.log({ context });
+          const {
+            organization,
+            pull_request,
+            repository,
+          } = context;
+          console.log({ organization, pull_request, repository });
