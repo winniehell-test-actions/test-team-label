@@ -11,5 +11,5 @@ runs:
             organization,
             pull_request,
             repository,
-          } = context;
+          } = context.payload;
           console.log({ organization, pull_request, repository });
