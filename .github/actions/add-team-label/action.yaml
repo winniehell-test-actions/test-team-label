@@ -12,15 +12,23 @@ runs:
             pull_request,
             repository,
           } = context.payload;
-          console.log({ organization, pull_request, repository });
+          const { title } = pull_request
+          
+          const labels = [];
+          if (/^D2-\d+:/.exec(title)) {
+            labels.push('team-fun');
+          }
 
-          const owner = organization.login;
-          const repo = repository.name;
-          const issue_number = pull_request.number;
-          const labels = ['test'];
-          github.rest.issues.addLabels({
-            owner,
-            repo,
-            issue_number,
-            labels
-          });
+          if (labels.length > 0) {
+            console.log(`Adding team labels: ${labels}`);
+            const owner = organization.login;
+            const repo = repository.name;
+            const issue_number = pull_request.number;
+            const labels = ['test'];
+            github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number,
+              labels
+            });
+        }
