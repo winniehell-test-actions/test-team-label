@@ -1,0 +1,7 @@
+name: 'Add team label'
+description: 'Add team label based on ticket number prefix in pull request title'
+
+runs:
+- uses: actions/github-script@v8
+  with:
+    script: require('add-team-label.js');
