@@ -8,7 +8,7 @@ on:
 
 jobs:
   team-labels:
-    runs-on: ubunut-latest
+    runs-on: ubuntu-slim
     steps:
       - name: Add team label
         uses: ./.github/actions/add-team-label
