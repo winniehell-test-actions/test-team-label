@@ -6,6 +6,9 @@ runs:
   steps:
     - uses: actions/github-script@v8
       with:
+        permissions:
+          contents: read
+          pull-requests: write
         script: |
           const {
             organization,
