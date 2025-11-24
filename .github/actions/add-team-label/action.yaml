@@ -13,3 +13,14 @@ runs:
             repository,
           } = context.payload;
           console.log({ organization, pull_request, repository });
+
+          const owner = organization.login;
+          const repo = repository.name;
+          const issue_number = pull_request.number;
+          const labels = ['test'];
+          github.rest.issues.addLabels({
+            owner,
+            repo,
+            issue_number,
+            labels
+        })
