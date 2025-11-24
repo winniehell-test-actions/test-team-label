@@ -3,8 +3,9 @@ name: Labels
 on:
   pull_request:
     types:
+      - edited
       - opened
-      - synchronize
+      - reopened
 
 jobs:
   team-labels:
