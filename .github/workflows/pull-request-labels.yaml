@@ -10,6 +10,9 @@ on:
 jobs:
   team-labels:
     runs-on: ubuntu-slim
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
