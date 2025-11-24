@@ -23,4 +23,4 @@ runs:
             repo,
             issue_number,
             labels
-        })
+          });
